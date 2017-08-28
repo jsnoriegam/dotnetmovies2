@@ -1,0 +1,48 @@
+{
+  "name": "movies-api-client",
+  "version": "0.0.1",
+  "description": "Movies API Client",
+  "main": "main.js",
+  "scripts": {
+    "build": "gulp build",
+    "serve": "gulp serve",
+    "test": "gulp test"
+  },
+  "keywords": [
+    "Movies",
+    "Vue.js"
+  ],
+  "author": "Juan S",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "vue": "^2.4.2",
+    "vue-router": "^2.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.4.0",
+    "browserify-shim": "^3.8.14",
+    "envify": "^4.1.0",
+    "fs-extra": "^4.0.1",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vueify": "^9.4.1",
+    "watchify": "^3.9.0"
+  },
+  "browser": {
+    "vue": "vue/dist/vue.common.js",
+    "jquery": "jquery/dist/jquery.slim.js"
+  },
+  "browserify-shim": {}
+}

@@ -1,4 +1,8 @@
+**/node_modules
 **/obj
 **/bin
 **/.vscode
+**/*.log
 Movies/Migrations
+Movies.Client/dev
+Movies.Client/dist
