@@ -1,6 +1,8 @@
 <template>
     <div>
         <h3>Películas</h3>
+        <div class="row" v-if="showForm">
+        </div>
         <div class="row">
             <div class="col">
                 <table class="table">
@@ -40,6 +42,7 @@ function obtenerPeliculas() {
 export default {
     data() {
         return {
+            showFrom: false,
             peliculas: []
         }
     },
