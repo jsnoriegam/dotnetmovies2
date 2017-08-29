@@ -1,11 +1,8 @@
 import axios from 'axios'
 
 class Config {
-    constructor() {
-        async () => {
-            let data = await axios.get('../config.json');
-            this.api_url = data.api_url;
-        }
+    async apiUrl() {
+        return await axios.get('../config.json').data.api_url;
     }
 }
 

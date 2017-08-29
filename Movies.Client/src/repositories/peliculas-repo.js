@@ -1,19 +1,17 @@
 import axios from 'axios'
 import config from '../services/config'
 
-console.log(config);
-
 class PeliculasRepo {
     obtenerPeliculas() {
-        return axios.get(`${ config.api_url }/peliculas`);
+        return axios.get(`${ config.apiUrl() }/peliculas`);
     }
 
     obtenerPelicula(id) {
-        return axios.get(`${ config.api_url }/peliculas/${ id }`);
+        return axios.get(`${ config.apiUrl() }/peliculas/${ id }`);
     }
 
     guardarPelicula(pelicula) {
-        return axios.post(`${ config.api_url }/peliculas`, pelicula);
+        return axios.post(`${ config.apiUrl() }/peliculas`, pelicula);
     }
 }
 
