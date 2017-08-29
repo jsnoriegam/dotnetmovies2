@@ -1,11 +1,15 @@
 <template>
     <div>
-        <div id="menu">
-            <router-link :to="{ name: 'dashboard' }">Dashboard</router-link>
-            <router-link :to="{ name: 'pagina1' }">Pagina 1</router-link>
-            <router-link :to="{ name: 'pagina2' }">Pagina 2</router-link>
-        </div>
-        <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <router-link :to="{ name: 'dashboard' }" class="navbar-brand">PELÍCULAS DB</router-link>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><router-link :to="{ name: 'peliculas' }" class="nav-link">Películas</router-link></li>
+                    <li class="nav-item"><router-link :to="{ name: 'personas' }" class="nav-link">Personas</router-link></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content" class="container">
             <router-view></router-view>
         </div>
     </div>

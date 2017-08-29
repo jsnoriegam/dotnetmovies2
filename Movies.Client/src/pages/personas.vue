@@ -1,7 +1,6 @@
 <template>
     <div>
-        <h1>{{ titulo }}</h1>
-        <div>Página 1</div>
+        <h3>Personas</h3>
     </div>
 </template>
 
@@ -9,7 +8,7 @@
 export default {
     data() {
         return {
-            titulo: "Hello world"
+
         }
     }
 }
