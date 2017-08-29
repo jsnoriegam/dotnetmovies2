@@ -1,17 +1,18 @@
 import axios from 'axios'
-import config from '../services/config'
+
+let api_url = 'http://localhost:5000/api/v1';
 
 class PeliculasRepo {
     obtenerPeliculas() {
-        return axios.get(`${ config.apiUrl() }/peliculas`);
+        return axios.get(`${ api_url }/peliculas`);
     }
 
     obtenerPelicula(id) {
-        return axios.get(`${ config.apiUrl() }/peliculas/${ id }`);
+        return axios.get(`${ api_url }/peliculas/${ id }`);
     }
 
     guardarPelicula(pelicula) {
-        return axios.post(`${ config.apiUrl() }/peliculas`, pelicula);
+        return axios.post(`${ api_url }/peliculas`, pelicula);
     }
 }
 
