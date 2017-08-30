@@ -3,16 +3,24 @@ import axios from 'axios'
 let api_url = 'http://localhost:5000/api/v1';
 
 class PeliculasRepo {
-    obtenerPeliculas() {
+    obtenerTodas() {
         return axios.get(`${ api_url }/peliculas`);
     }
 
-    obtenerPelicula(id) {
+    obtenerUna(id) {
         return axios.get(`${ api_url }/peliculas/${ id }`);
     }
 
-    guardarPelicula(pelicula) {
+    agregar(pelicula) {
         return axios.post(`${ api_url }/peliculas`, pelicula);
+    }
+
+    modificar(id, pelicula) {
+        return axios.put(`${ api_url }/peliculas/${ id }`, pelicula);
+    }
+
+    eliminar(id,) {
+        return axios.delete(`${ api_url }/peliculas/${ id }`);
     }
 }
 

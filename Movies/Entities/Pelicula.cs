@@ -35,7 +35,7 @@ namespace Movies.Entities
         public string Nombre { get => Pelicula.Nombre; }
         public string CodigoIMDB { get => Pelicula.CodigoIMDB; }
         public string Resumen { get => Pelicula.Resumen; }
-        public PersonaWrapperPeliculaView Director { get => new PersonaWrapperPeliculaView(Pelicula.Director); }
+        public PersonaWrapperPeliculaView Director { get => Pelicula.Director == null ? null : new PersonaWrapperPeliculaView(Pelicula.Director); }
     }
     [NotMapped]
     public class PeliculaWrapperPersonaView
