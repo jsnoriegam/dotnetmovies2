@@ -1,8 +1,6 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
-let api_url = 'http://localhost:5000/api/v1';
-
 function guardarToken(token) {
     localStorage.setItem('__token__', token);
 }
@@ -17,7 +15,7 @@ function borrarToken() {
 
 class AuthService {
     autenticar(username, password) {
-        return axios.post(`${ api_url }/auth/token`, {
+        return axios.post(`${ movies.api_url }/auth/token`, {
             username: username,
             password: password
         }).then(response => {
@@ -65,7 +63,7 @@ class AuthService {
     configAxios() {
         // Interceptamos todas las peticiones (excepto /auth/token) y le agregamos el encabezado Authorizarion
         axios.interceptors.request.use((request) => {
-            if(`${ api_url }/auth/token` !== request.url && 'OPTIONS' !== request.method.toUpperCase()) {
+            if(`${ movies.api_url }/auth/token` !== request.url && 'OPTIONS' !== request.method.toUpperCase()) {
                 let token = this.obtenerToken();
                 if(token) {
                     if(!request.headers['Authorization']) {
