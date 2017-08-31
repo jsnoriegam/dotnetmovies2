@@ -60,8 +60,15 @@ namespace Movies.Controllers
         {
             if (ModelState.IsValid)
             {
-                PeliculasService.Agregar(pelicula);
-                return Ok();
+                // Si queremos ser mas estrictos con el modelo RESTful
+                // Debemos retornar un Created con la entidad creada y la dirección para obtenerla
+                PeliculaWrapperView view = PeliculasService.Agregar(pelicula);
+                var uri = Url.RouteUrl(new {
+                    action = "Get",
+                    controller = "Peliculas",
+                    id = view.Id
+                });
+                return Created(uri, view);
             }
             else
             {

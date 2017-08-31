@@ -24,10 +24,11 @@ namespace Movies.Services
             return Context.Peliculas.AsNoTracking().Include(p => p.Director).Select(p => new PeliculaWrapperView(p)).ToList();
         }
 
-        public void Agregar(Pelicula pelicula)
+        public PeliculaWrapperView Agregar(Pelicula pelicula)
         {
             Context.Peliculas.Add(pelicula);
             Context.SaveChanges();
+            return new PeliculaWrapperView(pelicula);
         }
 
         public void Modificar(int id, Pelicula pelicula)
@@ -49,7 +50,7 @@ namespace Movies.Services
     {
         PeliculaWrapperView Obtener(int id);
         List<PeliculaWrapperView> ObtenerListado();
-        void Agregar(Pelicula pelicula);
+        PeliculaWrapperView Agregar(Pelicula pelicula);
         void Modificar(int id, Pelicula pelicula);
         void Eliminar(int id);
     }
