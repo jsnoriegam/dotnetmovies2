@@ -52,7 +52,7 @@ class AuthService {
         router.beforeEach((to, from, next) => {
             if (to.matched.some(record => record.meta.auth)) {
                 if(!this.tokenValido()) {
-                    next('/login');
+                    next({ name: 'login' });
                 } else {
                     next();
                 }
@@ -63,6 +63,7 @@ class AuthService {
     }
 
     configAxios() {
+        // Interceptamos todas las peticiones (excepto /auth/token) y le agregamos el encabezado Authorizarion
         axios.interceptors.request.use((request) => {
             if(`${ api_url }/auth/token` !== request.url && 'OPTIONS' !== request.method.toUpperCase()) {
                 let token = this.obtenerToken();
@@ -75,14 +76,14 @@ class AuthService {
             return request;
         }, (error) => Promise.reject(error));
         
+        // Interceptamos todas las respuestas
         axios.interceptors.response.use((response) => {
-            return new Promise((resolve, reject) => {
-                if(response.status === 401) {
-                    reject(response)
-                } else {
-                    resolve(response);
-                }
-            });
+            if(response.status === 401) {
+                borrarToken();
+                return Promise.reject(response);
+            } else {
+                return Promise.resolve(response);
+            }
         }, (error) => Promise.reject(error));
     }
 }

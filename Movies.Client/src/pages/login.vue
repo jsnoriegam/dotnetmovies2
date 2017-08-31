@@ -33,7 +33,7 @@ export default {
     methods: {
         login() {
             authService.autenticar(this.usuario.username, this.usuario.password).then(response => {
-                this.$router.push('dashboard');
+                this.$router.push({ name: 'dashboard' });
             });
         }
     }
